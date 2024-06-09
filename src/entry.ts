@@ -1,6 +1,6 @@
-import type { JsonSchemaToTsProvider } from "@fastify/type-provider-json-schema-to-ts";
+import type { FastifyPluginAsyncJsonSchemaToTs, JsonSchemaToTsProvider } from "@fastify/type-provider-json-schema-to-ts";
 import Fastify from "fastify";
-import { joinGet, joinPost } from "./router/api";
+import { apiRoutes } from "./router/api";
 
 const fastify = Fastify({
     logger: true,
@@ -32,9 +32,9 @@ fastify.get(
     },
 );
 
-fastify.register(joinGet);
-fastify.register(joinPost);
-
+for (const [idx, route] of Object.entries<FastifyPluginAsyncJsonSchemaToTs>(apiRoutes)) {
+    fastify.register(route);
+}
 /**
  * Run the server!
  */

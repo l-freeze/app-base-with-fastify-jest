@@ -1,29 +1,28 @@
-//import type { JsonSchemaToTsProvider } from "@fastify/type-provider-json-schema-to-ts";
 import type { FastifyPluginAsyncJsonSchemaToTs } from "@fastify/type-provider-json-schema-to-ts";
-//import Fastify from "fastify";
 
-export const joinPost: FastifyPluginAsyncJsonSchemaToTs = async (fastify, _options) => {
+export const apiPost: FastifyPluginAsyncJsonSchemaToTs = async (fastify, _options) => {
     fastify.post(
         "/api-post",
         {
             schema: {
                 body: {
                     type: "object",
-                    required: ["animal"],
+                    required: ["music"],
                     properties: {
-                        animal: { type: "string" },
+                        music: { type: "string" },
                     },
                 },
             } as const,
         },
         async (request, _reply) => {
-            const { animal } = request.body; // animal is string
-            return animal;
+            //const { music } = request.body;
+            //return music;
+            return request.body;
         },
     );
 };
 
-export const joinGet: FastifyPluginAsyncJsonSchemaToTs = async (fastify, _options) => {
+export const apiGet: FastifyPluginAsyncJsonSchemaToTs = async (fastify, _options) => {
     fastify.get(
         "/api-get",
         {
@@ -39,8 +38,14 @@ export const joinGet: FastifyPluginAsyncJsonSchemaToTs = async (fastify, _option
             } as const,
         },
         async (request, _reply) => {
-            const { num, str } = request.query; // animal is string
-            return { num, str };
+            // const { num, str } = request.query;
+            // return { num, str, path: "api-get" };
+            return request.query;
         },
     );
+};
+
+export const apiRoutes = {
+    apiGet,
+    apiPost,
 };
