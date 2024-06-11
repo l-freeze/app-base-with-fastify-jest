@@ -32,6 +32,14 @@ describe("example.domain.ageのテスト", () => {
             expect(Age.create(100)).toBeInstanceOf(Age);
         });
     });
+    describe("異常値", () => {
+        test(`inputが浮動小数点`, () => {
+            expect(() => Age.create(25.6)).toThrow(TypeError);
+        });
+        test.skip(`inputが文字列`, () => {
+            //引数の型エラーになるので問題ない
+        });
+    });
     describe("極端値", () => {
         test(`inputが${Number.MAX_SAFE_INTEGER}の時MinValueError`, () => {
             expect(() => Age.create(Number.MAX_SAFE_INTEGER)).toThrow();
@@ -40,11 +48,6 @@ describe("example.domain.ageのテスト", () => {
         test(`inputが${Number.MIN_SAFE_INTEGER}の時MinValueError`, () => {
             expect(() => Age.create(Number.MAX_SAFE_INTEGER)).toThrow();
             expect(() => Age.create(Number.MAX_SAFE_INTEGER)).toThrow(MaxValueError);
-        });
-    });
-    describe("型エラー", () => {
-        test(`inputが浮動小数展`, () => {
-            expect(() => Age.create(25.6)).toThrow(TypeError);
         });
     });
 });
