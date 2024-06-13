@@ -3,6 +3,8 @@
 		"build": "tsc -p tsconfig.json",
 		"start:dev": "ts-node-dev src/entry",
 		"test": "jest",
+		"test:coverage": "pnpm jest --coverage",
+		"test:coverage-ci": "pnpm test -- --coverage --silent --testLocationInResults --ci --json --outputFile=\"report.json\"",
 		"run": "node dist/entry.js"
 	},
 	"devDependencies": {
