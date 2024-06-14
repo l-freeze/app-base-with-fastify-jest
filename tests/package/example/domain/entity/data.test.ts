@@ -1,5 +1,5 @@
 import { describe, expect, test } from "@jest/globals";
-import { Data } from "../../../../../src/package/example/domain/entity/data";
+import { Data } from "src/package/example/domain/entity/data";
 
 describe("example.domain.dataエンティティのテスト", () => {
     describe("正常系", () => {

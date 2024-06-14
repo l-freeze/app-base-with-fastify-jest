@@ -1,7 +1,6 @@
 import { describe, expect, test } from "@jest/globals";
-import { Data } from "../../../../../src/package/example/domain/entity/data";
-import { MaxValueError, MinValueError, TypeError } from "../../../../../src/package/example/domain/exception/AgeError";
-import { Age } from "../../../../../src/package/example/domain/value/age";
+import { MaxValueError, MinValueError, TypeError } from "src/package/example/domain/exception/AgeError";
+import { Age } from "src/package/example/domain/value/age";
 
 describe("example.domain.ageのテスト", () => {
     describe("正常値", () => {

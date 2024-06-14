@@ -1,3 +1,5 @@
+import { MaxLengthError, MinLengthError } from "src/package/example/domain/exception/NameError";
+
 type NameType = string;
 
 export class Name {
@@ -9,13 +11,17 @@ export class Name {
     /**
      */
     static create(input: NameType): Name {
-        if (!this.validate(input)) {
-            //Exception
-        }
+        this.validate(input);
         return new Name(input);
     }
 
     static validate(input: NameType): boolean {
-        return input.length < this.LENGTH_MIN || this.LENGTH_MAX < input.length;
+        if (input.length < this.LENGTH_MIN) {
+            throw new MinLengthError(input);
+        }
+        if (input.length > this.LENGTH_MAX) {
+            throw new MaxLengthError(input);
+        }
+        return true;
     }
 }
