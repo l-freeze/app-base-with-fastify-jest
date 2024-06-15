@@ -1,6 +1,7 @@
 import type { FastifyPluginAsyncJsonSchemaToTs, JsonSchemaToTsProvider } from "@fastify/type-provider-json-schema-to-ts";
 import Fastify from "fastify";
 import { apiRoutes } from "./router/api";
+import { exmapleRouteer } from "./router/example/exmapleRoute";
 
 const fastify = Fastify({
     logger: true,
@@ -32,9 +33,20 @@ fastify.get(
     },
 );
 
+/**
+ * api.tsを取り込むパターン
+ */
 for (const [_idx, route] of Object.entries<FastifyPluginAsyncJsonSchemaToTs>(apiRoutes)) {
     fastify.register(route);
 }
+
+/**
+ * exampleRoute.tsを取り込むパターン
+ * prefixにパッケージ名を充てる
+ */
+fastify.register(exmapleRouteer, {
+    prefix: "/example",
+});
 /**
  * Run the server!
  */

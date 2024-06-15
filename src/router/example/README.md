@@ -1,2 +1,2 @@
-# ディレクトリ命名規則
-src/package配下のディレクトリ名と相対するように
+# ディレクトリ-ファイル命名規則
+/src/[package-name]/{useCase}.ts
