@@ -32,7 +32,7 @@ fastify.get(
     },
 );
 
-for (const [idx, route] of Object.entries<FastifyPluginAsyncJsonSchemaToTs>(apiRoutes)) {
+for (const [_idx, route] of Object.entries<FastifyPluginAsyncJsonSchemaToTs>(apiRoutes)) {
     fastify.register(route);
 }
 /**

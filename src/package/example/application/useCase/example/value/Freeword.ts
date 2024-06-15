@@ -11,15 +11,15 @@ export class Freeword {
     /**
      */
     static create(input: FreewordType): Freeword {
-        this.validate(input);
+        Freeword.validate(input);
         return new Freeword(input);
     }
 
     static validate(input: FreewordType): void {
-        if (input.length < this.LENGTH_MIN) {
+        if (input.length < Freeword.LENGTH_MIN) {
             throw new MinLengthError(input);
         }
-        if (input.length > this.LENGTH_MAX) {
+        if (input.length > Freeword.LENGTH_MAX) {
             throw new MaxLengthError(input);
         }
     }

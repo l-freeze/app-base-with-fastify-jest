@@ -7,14 +7,14 @@ export class Sex {
     private constructor(readonly value: SexType) {}
 
     static create(input: SexType) {
-        if (!this.validate(input)) {
+        if (!Sex.validate(input)) {
             //Exception
         }
         return new Sex(input);
     }
 
     static validate(input: SexType): boolean {
-        const allowedValues = [this.MALE, this.FEMALE];
+        const allowedValues = [Sex.MALE, Sex.FEMALE];
         return allowedValues.includes(input);
     }
 }

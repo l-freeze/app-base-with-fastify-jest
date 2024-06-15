@@ -11,15 +11,15 @@ export class Name {
     /**
      */
     static create(input: NameType): Name {
-        this.validate(input);
+        Name.validate(input);
         return new Name(input);
     }
 
     static validate(input: NameType): boolean {
-        if (input.length < this.LENGTH_MIN) {
+        if (input.length < Name.LENGTH_MIN) {
             throw new MinLengthError(input);
         }
-        if (input.length > this.LENGTH_MAX) {
+        if (input.length > Name.LENGTH_MAX) {
             throw new MaxLengthError(input);
         }
         return true;

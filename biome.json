@@ -13,6 +13,9 @@
 			},
 			"style": {
 				"noNamespace": "error"
+			},
+			"suspicious": {
+				"noShadowRestrictedNames": "warn"
 			}
 		}
 	},

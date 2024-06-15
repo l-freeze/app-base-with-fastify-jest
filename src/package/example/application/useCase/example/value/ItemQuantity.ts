@@ -11,17 +11,17 @@ export class ItemQuantity {
     /**
      */
     static create(input: ItemQuantityType): ItemQuantity {
-        if (!this.validate(input)) {
+        if (!ItemQuantity.validate(input)) {
             //Exception
         }
         return new ItemQuantity(input);
     }
 
     static validate(input: ItemQuantityType): boolean {
-        if (input < this.LENGTH_MIN) {
+        if (input < ItemQuantity.LENGTH_MIN) {
             throw new ZeroQuantityError(input);
         }
-        if (input > this.LENGTH_MAX) {
+        if (input > ItemQuantity.LENGTH_MAX) {
             throw new OverQuantityError(input);
         }
         return true;

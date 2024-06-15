@@ -10,7 +10,7 @@ export class Age {
     private constructor(readonly value: AgeType) {}
 
     static create(input: number): Age {
-        this.validate(input);
+        Age.validate(input);
         return new Age(Math.floor(input));
     }
 
@@ -18,10 +18,10 @@ export class Age {
         if (!Number.isSafeInteger(input)) {
             throw new TypeError(input);
         }
-        if (input < this.MIN) {
+        if (input < Age.MIN) {
             throw new MinValueError(input);
         }
-        if (input > this.MAX) {
+        if (input > Age.MAX) {
             throw new MaxValueError(input);
         }
         return true;
