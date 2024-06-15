@@ -3,6 +3,8 @@
 		"build": "tsc -p tsconfig.json",
 		"start": "node dist/entry.js",
 		"start:dev": "ts-node-dev src/entry",
+		"lint": "pnpm biome lint ./src ./test",
+		"lint:fixed": "pnpm biome check --write ./src",
 		"test": "jest",
 		"test:coverage": "pnpm jest --coverage",
 		"test:coverage-ci": "pnpm test -- --coverage --silent --testLocationInResults --ci --json --outputFile=\"report.json\"",
