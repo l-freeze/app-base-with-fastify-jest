@@ -1,11 +1,11 @@
 {
 	"scripts": {
 		"build": "tsc -p tsconfig.json",
+		"start": "node dist/entry.js",
 		"start:dev": "ts-node-dev src/entry",
 		"test": "jest",
 		"test:coverage": "pnpm jest --coverage",
 		"test:coverage-ci": "pnpm test -- --coverage --silent --testLocationInResults --ci --json --outputFile=\"report.json\"",
-		"run": "node dist/entry.js",
 		"db:generate": "pnpm exec drizzle-kit generate",
 		"db:migrate": "pnpm exec drizzle-kit migrate"
 	},
