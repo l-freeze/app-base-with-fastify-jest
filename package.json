@@ -12,7 +12,7 @@
 		"db:migrate": "pnpm exec drizzle-kit migrate"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.8.0",
+		"@biomejs/biome": "1.8.1",
 		"@jest/globals": "^29.7.0",
 		"@types/jest": "^29.5.12",
 		"@types/node": "^20.14.2",
